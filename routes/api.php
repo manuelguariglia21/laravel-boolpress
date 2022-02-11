@@ -19,6 +19,13 @@ use Illuminate\Support\Facades\Route;
 }); */
 
 
-Route::get('posts', 'Api\PostController@index');
+
+
+Route::namespace('Api')
+    ->prefix('posts')
+    ->group(function(){
+        Route::get('/', 'PostController@index');
+        Route::get('{slug}', 'PostController@show');
+    });
 
 

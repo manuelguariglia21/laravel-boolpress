@@ -1,9 +1,9 @@
 <template>
   <article>
     <h3>
-      <a href="#">
+      <router-link :to="{name:'detail', params:{slug: post.slug} }">
         {{post.title}}
-      </a>
+      </router-link>
     </h3>
 
     
