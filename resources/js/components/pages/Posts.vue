@@ -40,7 +40,7 @@
 </template>
 
 <script>
-import PostItem from './PostItem';
+import PostItem from '../partials/PostItem.vue';
 export default {
   name: 'Posts',
   components:{
