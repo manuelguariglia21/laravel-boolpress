@@ -33,7 +33,6 @@ export default {
         .then(res=> {
             this.post = res.data;
             console.log(this.post);
-            //rivedo registrazione per capire cosa c'è qui <--------------IMPORTANTE---------------->
         })
     }
   },
