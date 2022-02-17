@@ -24,7 +24,7 @@
     </div>
 
     <p class="data">
-      {{post.created_at}}
+      {{setDate}}
     </p>
 
     <p>
@@ -38,12 +38,25 @@
 export default {
 
   name: 'PostItem',
+  data(){
+    return{
+      date: null,
+    }
+  },
   props:{
     'post': Object,
   },
   computed:{
     truncateText(){
       return this.post.description.substr(0, 50) + '...';
+    },
+    setDate(){
+      this.date = new Date(this.post.created_at);
+      const monthNames = [
+        "Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"
+      ];
+      const format_date = ` ${this.date.getDay()} ${monthNames[this.date.getMonth()]} ${this.date.getFullYear()}`;
+      return format_date;
     }
   }
 

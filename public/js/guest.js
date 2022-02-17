@@ -2314,12 +2314,23 @@ __webpack_require__.r(__webpack_exports__);
 //
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: 'PostItem',
+  data: function data() {
+    return {
+      date: null
+    };
+  },
   props: {
     'post': Object
   },
   computed: {
     truncateText: function truncateText() {
       return this.post.description.substr(0, 50) + '...';
+    },
+    setDate: function setDate() {
+      this.date = new Date(this.post.created_at);
+      var monthNames = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
+      var format_date = " ".concat(this.date.getDay(), " ").concat(monthNames[this.date.getMonth()], " ").concat(this.date.getFullYear());
+      return format_date;
     }
   }
 });
@@ -4111,7 +4122,7 @@ var render = function () {
     ),
     _vm._v(" "),
     _c("p", { staticClass: "data" }, [
-      _vm._v("\n    " + _vm._s(_vm.post.created_at) + "\n  "),
+      _vm._v("\n    " + _vm._s(_vm.setDate) + "\n  "),
     ]),
     _vm._v(" "),
     _c("p", [_vm._v("\n    " + _vm._s(_vm.truncateText) + "\n  ")]),
